@@ -128,6 +128,7 @@ is_new_style_console_available() ->
     true.
 -else.
 is_new_style_console_available() ->
+    true.
     %% Criteria:
     %% 1. If the user has specified '-noshell' on the command line,
     %%    then we will pretend that the new-style console is available.
@@ -138,9 +139,9 @@ is_new_style_console_available() ->
     %% 3. If the user_drv process is registered, all is OK.
     %%    'user_drv' is a registered proc name used by the "new"
     %%    console driver.
-    init:get_argument(noshell) /= error orelse
-        element(1, os:type()) /= win32 orelse
-        is_pid(whereis(user_drv)).
+    %%init:get_argument(noshell) /= error orelse
+    %%    element(1, os:type()) /= win32 orelse
+    %%    is_pid(whereis(user_drv)).
 -endif.
 
 -ifdef(TEST).
